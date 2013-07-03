@@ -1,0 +1,23 @@
+{
+    "name": "bc-luke/taming-globals",
+    "description": "Taming global functions in PHP, for improved testability",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Luke Eller",
+            "email": "luke.eller@bigcommerce.com"
+        }
+    ],
+    "require": {
+        "psr/log": "1.0.0",
+        "monolog/monolog": "1.5.0",
+        "phpunit/phpunit": "3.7.21"
+    },
+    "autoload": {
+        "psr-0": {
+            "": [
+                "lib"
+            ]
+        }
+    }
+}
