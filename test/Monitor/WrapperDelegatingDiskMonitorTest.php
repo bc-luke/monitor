@@ -2,7 +2,7 @@
 
 namespace Monitor;
 
-class VariableClassDiskMonitorTest extends \PHPUnit_Framework_TestCase
+class WrapperDelegatingDiskMonitorTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -32,7 +32,7 @@ class VariableClassDiskMonitorTest extends \PHPUnit_Framework_TestCase
             ->with('/')
             ->will($this->returnValue(500));
 
-        $diskMonitor = new VariableClassDiskMonitor($this->mockLogger, 1000, '/');
+        $diskMonitor = new WrapperDelegatingDiskMonitor($this->mockLogger, 1000, '/');
         $diskMonitor->setFilesystemUtilClass($mockFilesystemUtilClass);
 
         $diskMonitor->run();
@@ -56,7 +56,7 @@ class VariableClassDiskMonitorTest extends \PHPUnit_Framework_TestCase
             ->with('/')
             ->will($this->returnValue(false));
 
-        $diskMonitor = new VariableClassDiskMonitor($this->mockLogger, 1000, '/');
+        $diskMonitor = new WrapperDelegatingDiskMonitor($this->mockLogger, 1000, '/');
         $diskMonitor->setFilesystemUtilClass($mockFilesystemUtilClass);
 
         $diskMonitor->run();

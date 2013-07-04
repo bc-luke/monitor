@@ -8,7 +8,7 @@ namespace Monitor;
  * @link http://php.net/manual/en/functions.variable-functions.php Variable functions
  * @package Monitor
  */
-class VariableFunctionDiskMonitor extends AbstractDiskMonitor
+class VariableFunctionInvokingDiskMonitor extends AbstractDiskMonitor
 {
 
     /**

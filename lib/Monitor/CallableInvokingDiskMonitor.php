@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
  *
  * @package Monitor
  */
-class CallbackDiskMonitor extends AbstractDiskMonitor
+class CallableInvokingDiskMonitor extends AbstractDiskMonitor
 {
 
     /**

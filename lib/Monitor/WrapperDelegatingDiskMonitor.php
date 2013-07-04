@@ -8,7 +8,7 @@ namespace Monitor;
  *
  * @package Monitor
  */
-class VariableClassDiskMonitor extends AbstractDiskMonitor {
+class WrapperDelegatingDiskMonitor extends AbstractDiskMonitor {
 
     /**
      * The name of the class that provides filesystem-related functions.

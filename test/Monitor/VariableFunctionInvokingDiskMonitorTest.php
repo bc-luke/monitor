@@ -2,7 +2,7 @@
 
 namespace Monitor;
 
-class VariableFunctionDiskMonitorTest extends \PHPUnit_Framework_TestCase
+class VariableFunctionInvokingDiskMonitorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var \Psr\Log\LoggerInterface
@@ -24,7 +24,7 @@ class VariableFunctionDiskMonitorTest extends \PHPUnit_Framework_TestCase
     public function testWarningLoggedWhenAvailableSpaceBelowThreshold()
     {
         $this->mockLogger->expects($this->once())->method('warning');
-        $diskMonitor = new VariableFunctionDiskMonitor($this->mockLogger, 1000, '/');
+        $diskMonitor = new VariableFunctionInvokingDiskMonitor($this->mockLogger, 1000, '/');
         $diskMonitor->setDiskFreeSpaceFunction(function () {
            return 500;
         });
@@ -41,7 +41,7 @@ class VariableFunctionDiskMonitorTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockLogger->expects($this->once())->method('error');
 
-        $diskMonitor = new VariableFunctionDiskMonitor($this->mockLogger, 1000, '/');
+        $diskMonitor = new VariableFunctionInvokingDiskMonitor($this->mockLogger, 1000, '/');
         $diskMonitor->setDiskFreeSpaceFunction(function () {
             return false;
         });

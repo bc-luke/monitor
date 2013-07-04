@@ -9,8 +9,9 @@ The included library defines a `Monitor` interface, instances of which can be `r
 Also included are various implementations demonstrating how we might create a disk space monitor that logs warnings when disk space on a particular volume is low. The basic implementation, `SimpleDiskMonitor` is not easily tested due to its direct dependency on the global function `disk_free_space()`. Each of the other implementations demonstrate a different way to control the behaviour of `disk_free_space()` in a testing scenario.
 
 * `FunctionWrappingDiskMonitor` wraps the global function in a protected member function.
-* `VariableClassDiskMonitor` wraps the global function in a static function defined in a utility class.
-* `VariableFunctionDiskMonitor` replaces the invocation of the global function by name with an invocation by variable.
+* `WrapperDelegatingDiskMonitor` wraps the global function in a static function defined in a utility class.
+* `VariableFunctionInvokingDiskMonitor` replaces the invocation of the global function by name with an invocation by variable.
+* `CallableInvokingDiskMonitor` replaces the invocation of the global function by name with an invocation using `call_user_func()`.
 
 Each of these implementations allow test cases to exercise the monitor's logic by controlling the result of the function that returns free disk space.
 
