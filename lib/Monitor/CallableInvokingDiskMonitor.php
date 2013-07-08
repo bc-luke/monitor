@@ -27,9 +27,7 @@ class CallableInvokingDiskMonitor extends AbstractDiskMonitor
      */
     public function __construct(LoggerInterface $logger, $threshold, $path = '/', $diskFreeSpaceCallback = null)
     {
-        $this->logger = $logger;
-        $this->directory = $path;
-        $this->threshold = $threshold;
+        parent::__construct($logger, $threshold, $path);
         if (is_null($diskFreeSpaceCallback)) {
             $this->diskFreeSpaceCallback = function ($directory) {
                 return \disk_free_space($directory);
