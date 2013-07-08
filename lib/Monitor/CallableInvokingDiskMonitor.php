@@ -43,8 +43,7 @@ class CallableInvokingDiskMonitor extends AbstractDiskMonitor
         $result = call_user_func($this->diskFreeSpaceCallback, $this->directory);
         if ($result === false) {
             $this->logger->error("Could not determine free disk space for path {$this->directory}");
-        }
-        if ($result < $this->threshold) {
+        } else if ($result < $this->threshold) {
             $this->logger->warning("{$this->directory} is almost out of space.");
         }
     }

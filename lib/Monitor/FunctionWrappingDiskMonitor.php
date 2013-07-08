@@ -18,8 +18,7 @@ class FunctionWrappingDiskMonitor extends AbstractDiskMonitor
         $result = $this->diskFreeSpace($this->directory);
         if ($result === false) {
             $this->logger->error("Could not determine free disk space for directory {$this->directory}");
-        }
-        if ($result < $this->threshold) {
+        } else if ($result < $this->threshold) {
             $this->logger->warning("{$this->directory} is almost out of space.");
         }
     }
