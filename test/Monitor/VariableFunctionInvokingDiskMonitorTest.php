@@ -28,6 +28,7 @@ class VariableFunctionInvokingDiskMonitorTest extends \PHPUnit_Framework_TestCas
         $diskMonitor->setDiskFreeSpaceFunction(function () {
            return 500;
         });
+
         $diskMonitor->run();
     }
 
@@ -45,6 +46,25 @@ class VariableFunctionInvokingDiskMonitorTest extends \PHPUnit_Framework_TestCas
         $diskMonitor->setDiskFreeSpaceFunction(function () {
             return false;
         });
+
+        $diskMonitor->run();
+    }
+
+    /**
+     * Tests that an informational message is logged when available disk space is within the threshold.
+     *
+     * Here, the default value of the variable function has been replaced with a closure that simply returns the value
+     * <code>1500</code>. This allows for testing of the case where an acceptable amount of disk space is available.
+     */
+    public function testInfoMessageLoggedWhenDiskSpaceWithinThreshold()
+    {
+        $this->mockLogger->expects($this->once())->method('info');
+
+        $diskMonitor = new VariableFunctionInvokingDiskMonitor($this->mockLogger, 1000, '/');
+        $diskMonitor->setDiskFreeSpaceFunction(function () {
+            return 1500;
+        });
+
         $diskMonitor->run();
     }
 }

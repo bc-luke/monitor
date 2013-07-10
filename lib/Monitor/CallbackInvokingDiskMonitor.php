@@ -29,10 +29,11 @@ class CallbackInvokingDiskMonitor extends AbstractDiskMonitor
     {
         parent::__construct($logger, $threshold, $path);
         if (is_null($diskFreeSpaceCallback)) {
-            $this->diskFreeSpaceCallback = function ($directory) {
+            $diskFreeSpaceCallback = function ($directory) {
                 return \disk_free_space($directory);
             };
         }
+        $this->diskFreeSpaceCallback = $diskFreeSpaceCallback;
     }
 
     /**
@@ -45,6 +46,8 @@ class CallbackInvokingDiskMonitor extends AbstractDiskMonitor
             $this->logger->error("Could not determine free disk space for path {$this->directory}");
         } else if ($result < $this->threshold) {
             $this->logger->warning("{$this->directory} is almost out of space.");
+        } else {
+            $this->logger->info("Checked free space for path {$this->directory}; everything is fine.");
         }
     }
 
@@ -57,6 +60,5 @@ class CallbackInvokingDiskMonitor extends AbstractDiskMonitor
     {
         $this->diskFreeSpaceCallback = $diskFreeSpaceCallback;
     }
-
 
 }

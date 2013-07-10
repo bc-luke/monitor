@@ -29,6 +29,8 @@ class WrapperDelegatingDiskMonitor extends AbstractDiskMonitor {
             $this->logger->error("Could not determine free disk space for path {$this->directory}");
         } else if ($result < $this->threshold) {
             $this->logger->warning("{$this->directory} is almost out of space.");
+        } else {
+            $this->logger->info("Checked free space for path {$this->directory}; everything is fine.");
         }
     }
 

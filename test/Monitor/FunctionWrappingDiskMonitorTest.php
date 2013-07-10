@@ -69,4 +69,23 @@ class FunctionWrappingDiskMonitorTest extends \PHPUnit_Framework_TestCase
         $this->diskMonitor->run();
 
     }
+
+    /**
+     * Tests that an informational message is logged when available disk space is within the threshold.
+     *
+     * Here, the behaviour of the wrapper method {@link FunctionWrappingDiskMonitor::diskFreeSpace()} has been
+     * controlled such that it will return the value <code>1500</code>. This allows for testing of the case where an
+     * acceptable amount of disk space is available.
+     */
+    public function testInfoMessageLoggedWhenDiskSpaceWithinThreshold()
+    {
+        $this->mockLogger->expects($this->once())->method('info');
+
+        $this->diskMonitor->expects($this->once())
+            ->method('diskFreeSpace')
+            ->with('/')
+            ->will($this->returnValue(1500));
+
+        $this->diskMonitor->run();
+    }
 }
