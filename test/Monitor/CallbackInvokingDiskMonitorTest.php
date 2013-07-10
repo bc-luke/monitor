@@ -2,7 +2,7 @@
 
 namespace Monitor;
 
-class CallableInvokingDiskMonitorTest extends \PHPUnit_Framework_TestCase
+class CallbackInvokingDiskMonitorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var \Psr\Log\LoggerInterface
@@ -24,7 +24,7 @@ class CallableInvokingDiskMonitorTest extends \PHPUnit_Framework_TestCase
     public function testWarningLoggedWhenAvailableSpaceBelowThreshold()
     {
         $this->mockLogger->expects($this->once())->method('warning');
-        $diskMonitor = new CallableInvokingDiskMonitor($this->mockLogger, 1000, '/');
+        $diskMonitor = new CallbackInvokingDiskMonitor($this->mockLogger, 1000, '/');
         $diskMonitor->setDiskFreeSpaceCallback(function () {
            return 500;
         });
@@ -42,7 +42,7 @@ class CallableInvokingDiskMonitorTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockLogger->expects($this->once())->method('error');
 
-        $diskMonitor = new CallableInvokingDiskMonitor($this->mockLogger, 1000, '/');
+        $diskMonitor = new CallbackInvokingDiskMonitor($this->mockLogger, 1000, '/');
         $diskMonitor->setDiskFreeSpaceCallback(function () {
             return false;
         });

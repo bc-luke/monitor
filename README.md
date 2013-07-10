@@ -11,7 +11,7 @@ Also included are various implementations demonstrating how we might create a di
 * `FunctionWrappingDiskMonitor` wraps the global function in a protected member function.
 * `WrapperDelegatingDiskMonitor` wraps the global function in a static function defined in a utility class.
 * `VariableFunctionInvokingDiskMonitor` replaces the invocation of the global function by name with an invocation by variable.
-* `CallableInvokingDiskMonitor` replaces the invocation of the global function by name with an invocation using `call_user_func()`.
+* `CallbackInvokingDiskMonitor` replaces the invocation of the global function by name with an invocation using `call_user_func()`.
 
 Each of these implementations allow test cases to exercise the monitor's logic by controlling the result of the function that returns free disk space.
 
