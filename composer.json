@@ -1,5 +1,5 @@
 {
-    "name": "bc-luke/disk-monitor",
+    "name": "bc-luke/monitor",
     "description": "Taming procedural functions in PHP, for improved testability",
     "minimum-stability": "stable",
     "authors": [
