@@ -8,7 +8,7 @@ class FunctionWrappingDiskMonitorTest extends \PHPUnit_Framework_TestCase
      * A subclass of the class under test, instantiated by the {@link setUp()} method.
      *
      * Its implementation of the wrapper function {@link FunctionWrappingDiskMonitor::diskFreeSpace()} has been mocked
-     * such that the global function {@link disk_free_space()} may be isolated and controlled.
+     * such that the procedural function {@link disk_free_space()} may be isolated and controlled.
      *
      * @var \Monitor\FunctionWrappingDiskMonitor
      */

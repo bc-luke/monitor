@@ -1,6 +1,6 @@
 {
-    "name": "bc-luke/taming-globals",
-    "description": "Taming global functions in PHP, for improved testability",
+    "name": "bc-luke/disk-monitor",
+    "description": "Taming procedural functions in PHP, for improved testability",
     "minimum-stability": "stable",
     "authors": [
         {

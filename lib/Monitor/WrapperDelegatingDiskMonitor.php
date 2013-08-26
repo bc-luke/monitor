@@ -37,7 +37,7 @@ class WrapperDelegatingDiskMonitor extends AbstractDiskMonitor {
     /**
      * Sets the name of the class that provides filesystem-related functions.
      *
-     * @param string $filesystemUtilClass A class that wraps the global function {@link disk_free_space()}.
+     * @param string $filesystemUtilClass A class that wraps the procedural function {@link disk_free_space()}.
      * @return $this
      */
     public function setFilesystemUtilClass($filesystemUtilClass)

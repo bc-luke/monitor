@@ -15,7 +15,7 @@ class SimpleDiskMonitor extends AbstractDiskMonitor
      */
     public function run()
     {
-        $result = disk_free_space($this->directory); // Calls the global function directly.
+        $result = disk_free_space($this->directory); // Calls the procedural function directly.
         if ($result === false) {
             $this->logger->error("Could not determine free disk space for path {$this->directory}");
         } else if ($result < $this->threshold) {

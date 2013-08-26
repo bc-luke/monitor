@@ -26,7 +26,7 @@ class FunctionWrappingDiskMonitor extends AbstractDiskMonitor
     }
 
     /**
-     * Wraps the global function {@link disk_free_space()}.
+     * Wraps the procedural function {@link disk_free_space()}.
      *
      * @param string $directory A directory of the filesystem or disk partition.
      * @return float|bool The number of available bytes as a <code>float</code> or <code>false</code> on failure.
